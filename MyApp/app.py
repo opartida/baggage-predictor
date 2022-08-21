@@ -1,9 +1,10 @@
-from ast import Mod
 from flask import Flask,request, url_for, redirect, render_template, jsonify
 import tensorflow as tf
 import tensorflow as tf
 import json
 import datetime
+from tensorflow import keras
+import os
 
 # Initalise the Flask app
 app = Flask(__name__)
@@ -22,9 +23,11 @@ def home():
 
 @app.route('/predict',methods=['POST'])
 def predict():    
-    #model_path = '/MyApp/Models/baggage-predictor/1'
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    model_path = os.path.join(dir_path, 'Models/baggage-predictor')
     #loaded_model = tf.saved_model.load(model_path)
-    #inference_fn = loaded_model.signatures['serving_rest']
+    loaded_model = tf.keras.models.load_model(model_path)
+    inference_fn = loaded_model.signatures['serving_rest']
     departure = request.form.get("departure")
     arrival = request.form.get("arrival")    
     departure = formatDate(departure)
@@ -61,28 +64,28 @@ def predict():
     sms_t = tf.constant(sms, dtype=tf.string, shape=(1,1))
     distance_t = tf.constant(distance, dtype=tf.float64, shape=(1,1))
 
-    #result = inference_fn(departure=departure_t, 
-    #                    arrival=arrival_t,
-    #                    adults=adults_t,
-    #                    children=children_t,
-    #                    infants=infants_t,
-    #                    trip_type=trip_type_t,
-    #                    train=train_t,
-    #                    gds=gds_t,
-    #                    haul_type=haul_type_t,
-    #                    no_gds=no_gds_t,
-    #                    website=website_t,
-    #                    product=product_t,
-    #                    sms=sms_t,
-    #                    distance=distance_t)
+    result = inference_fn(departure=departure_t, 
+                        arrival=arrival_t,
+                        adults=adults_t,
+                        children=children_t,
+                        infants=infants_t,
+                        trip_type=trip_type_t,
+                        train=train_t,
+                        gds=gds_t,
+                        haul_type=haul_type_t,
+                        no_gds=no_gds_t,
+                        website=website_t,
+                        product=product_t,
+                        sms=sms_t,
+                        distance=distance_t)
 
     
 
-    #prediction = result['output_0'].numpy()
+    prediction = result['output_0'].numpy()
 
-    prediction = 0
     
-    return render_template('home.html',pred=distance)
+    
+    return render_template('home.html',pred=prediction)
 
 if __name__ == '__main__':
     app.run(debug=True)
