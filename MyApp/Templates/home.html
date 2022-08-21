@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{title}}</title>
+
+    <style>
+      input[type="number"] {
+        width: 100px;
+      }
+    </style>    
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-half">
+            <div class="has-text-white mb-4 title has-background-info-dark p-4">
+              Extra Baggage Predictor
+            </div>
+            <div class="form-group">
+              <form
+                method="post"
+                action="/predict"
+                enctype="multipart/form-data"
+              >
+                <div class="columns">
+                  <div class="column">
+                    <div class="field">
+                      <label class="label">Departure</label>
+                      <div class="control">
+                        <input class="input" type="date" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="column">
+                    <div class="field">
+                      <label class="label">Arrival</label>
+                      <div class="control">
+                        <input class="input" type="date" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <label class="label">Distance (Km)</label>
+                  <div class="control">
+                    <input size="10" class="input" class="input" type="number" min="0" />
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="columns">
+                    <div class="column">
+                      <label class="label">Num Adults</label>
+                      <div class="control">
+                        <input type="number" class="input" min="0" max="10" value="0" />
+                      </div>
+                    </div>
+                    <div class="column">
+                      <label class="label">Num Children</label>
+                      <div class="control">
+                        <input type="number"  class="input" min="0" max="10" value="0" />
+                      </div>
+                    </div>
+                    <div class="column">
+                      <label class="label">Num Infants</label>
+                      <div class="control">
+                        <input type="number"  class="input" min="0" max="10" value="0" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="label">Trip type</label>
+                  <div class="control">
+                    <div class="select">
+                      <select>
+                        {% for i in ['MULTI DESTINATION', 'ONE WAY', 'ROUND
+                        TRIP']%}
+
+                        <option value="{{i}}">{{i}}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="label">Website</label>
+                  <div class="select">
+                    <select>
+                      {% for i in ['EDAE', 'EDAR', 'EDAU', 'EDBR', 'EDCA',
+                      'EDCH', 'EDCL', 'EDCN', 'EDCO', 'EDDE', 'EDEG', 'EDES',
+                      'EDFR', 'EDGB', 'EDGR', 'EDHK', 'EDID', 'EDIN', 'EDIT',
+                      'EDJP', 'EDMA', 'EDMX', 'EDNL', 'EDNZ', 'EDPE', 'EDPH',
+                      'EDPT', 'EDRU', 'EDSG', 'EDTH', 'EDTR', 'EDUK', 'EDUS',
+                      'EDVE', 'EDZA', 'GODE', 'GOES', 'GOFR', 'GOGB', 'GOIT',
+                      'GONL', 'GOPT', 'OPAT', 'OPAU', 'OPCH', 'OPDE', 'OPDEC',
+                      'OPFR', 'OPFRC', 'OPGB', 'OPIT', 'OPNL', 'OPPL', 'OPPLC',
+                      'OPUK', 'TLDK', 'TLDKC', 'TLFI', 'TLNO', 'TLSE']%}
+                      <option value="{{i}}">{{i}}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="label">Product</label>
+                  <div class="select">
+                    <select>
+                      {% for i in ['TRIP', 'DYNPACK']%}
+                      <option>{{i}}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="label">GDS</label>
+                  <div class="select">
+                    <select>
+                      {% for i in [0, 1,2,3,4]%}
+                      <option>{{i}}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="label">No GDS</label>
+                  <div class="select">
+                    <select>
+                      {% for i in [0, 1,2,3,4]%}
+                      <option>{{i}}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <div>
+                    <label class="checkbox has-text-weight-bold">
+                      <input type="checkbox" id="train" name="train" />
+                      Train
+                    </label>
+                  </div>
+                </div>
+                <div class="field is-grouped">
+                  <div class="control">
+                    <button class="button is-link">Submit</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div>{{pred}}</div>
+  </body>
+</html>
