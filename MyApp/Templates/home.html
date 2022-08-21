@@ -29,8 +29,7 @@
             >
               Extra Baggage Predictor
             </div>
-            <div>{{pred}}</div>
-            {% if (pred is number) %}
+            {% if (pred is number) or (pred is string) %}
             <div class="notification is-primary">
               Expected probability extra bags will be added: {{pred}}
             </div>

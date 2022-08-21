@@ -81,8 +81,8 @@ def predict():
 
     
 
-    prediction = result['output_0'].numpy()
-
+    prediction = result['output_0'].numpy()[0][0]
+    prediction = format(prediction, '.2f')
     
     
     return render_template('home.html',pred=prediction)
