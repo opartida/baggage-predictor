@@ -8,24 +8,24 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
-    
   </head>
   <body>
     <div class="container">
-
-      <h1>
-        <div
-          class="is-size-2 has-text-centered p-4"
-          style="background-color: darkgreen; color: white"
-        >
-          Extra Baggage Predictor
+      <div class="content">
+        <h1>
+          <div
+            class="is-size-2 has-text-centered p-4"
+            style="background-color: darkgreen; color: white"
+          >
+            Extra Baggage Predictor
+          </div>
+        </h1>
+        {% if (pred is number) or (pred is string) %}
+        <div class="notification is-primary">
+          Expected probability extra bags will be added: {{pred}}
         </div>
-      </h1>
-      {% if (pred is number) or (pred is string) %}
-      <div class="notification is-primary">
-        Expected probability extra bags will be added: {{pred}}
+        {% endif %} {% include "form.html" %}
       </div>
-      {% endif %} {% include "form.html" %}
     </div>
   </body>
 </html>
