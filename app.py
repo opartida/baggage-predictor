@@ -5,7 +5,7 @@ from tensorflow import keras
 import os
 
 # Initalise the Flask app
-app = Flask(__name__)
+app = Flask(__name__, template_folder='Templates')
 
 def formatDate(date_string):
     if (not date_string):
