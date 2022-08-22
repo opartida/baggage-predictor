@@ -1,1 +1,1 @@
-web: gunicorn — bind 0.0.0.0:$PORT baggage-predictor:app
+web: gunicorn extra-baggage-predictor:app
