@@ -1,1 +1,1 @@
-web: gunicorn baggage-predictor:app
+web: gunicorn app:app
