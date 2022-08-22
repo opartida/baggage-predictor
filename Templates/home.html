@@ -21,24 +21,8 @@
   <body>
     <section class="section">
       <div class="container">
-        <div class="columns is-centered">
-          <div class="column is-hidden-mobile is-half has-background-white p-6">
-            <div
-              style="background-color: gold"
-              class="has-text-black-bis mb-4 title p-4"
-            >
-              Extra Baggage Predictor
-            </div>
-            {% if (pred is number) or (pred is string) %}
-            <div class="notification is-primary">
-              Expected probability extra bags will be added: {{pred}}
-            </div>
-            {% endif %}
-            {% include "form.html" %}
-            
-          </div>
-
-          <div class="column is-hidden-desktop has-background-white p-6">
+        <div class="columns is-centered">      
+          <div class="column has-background-white p-6">
             <div
               style="background-color: gold"
               class="has-text-black-bis mb-4 title p-4"
