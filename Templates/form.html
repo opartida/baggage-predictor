@@ -1,0 +1,190 @@
+<div class="form-group">
+              <form
+                method="post"
+                action="/predict"
+              >
+                <div class="columns">
+                  <div class="column">
+                    <div class="field">
+                      <label class="label">Departure</label>
+                      <div class="control">
+                        <input class="input" name="departure" type="date" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="column">
+                    <div class="field">
+                      <label class="label">Arrival</label>
+                      <div class="control">
+                        <input class="input" name="arrival" type="date" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="columns">
+                    <div class="column">
+                      <label class="label">Num Adults</label>
+                      <div class="control">
+                        <input
+                          type="number"
+                          class="input"
+                          name="adults"
+                          min="0"
+                          max="10"
+                          value="0"
+                        />
+                      </div>
+                    </div>
+                    <div class="column">
+                      <label class="label">Num Children</label>
+                      <div class="control">
+                        <input
+                          type="number"
+                          class="input"
+                          name="children"
+                          min="0"
+                          max="10"
+                          value="0"
+                        />
+                      </div>
+                    </div>
+                    <div class="column">
+                      <label class="label">Num Infants</label>
+                      <div class="control">
+                        <input
+                          type="number"
+                          class="input"
+                          name="infants"
+                          min="0"
+                          max="10"
+                          value="0"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <label class="label">Distance (Km)</label>
+                  <div class="control">
+                    <input
+                      size="10"
+                      name="distance"
+                      class="input"
+                      placeholder="345.78"
+                      pattern="(^\d+$)|(\d+\.\d+)"
+                      type="text"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="label">Haul type</label>
+                  <div class="control">
+                    <div class="select">
+                      <select name="haul_type">
+                        {% for i in ['CONTINENTAL', 'DOMESTIC',
+                        'INTERCONTINENTAL']%}
+
+                        <option>{{i}}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <label class="label">Trip type</label>
+                  <div class="control">
+                    <div class="select">
+                      <select name="trip_type">
+                        {% for i in ['MULTI DESTINATION', 'ONE WAY', 'ROUND
+                        TRIP']%}
+
+                        <option value="{{i}}">{{i}}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="label">Website</label>
+                  <div class="select">
+                    <select name="website">
+                      {% for i in ['EDAE', 'EDAR', 'EDAU', 'EDBR', 'EDCA',
+                      'EDCH', 'EDCL', 'EDCN', 'EDCO', 'EDDE', 'EDEG', 'EDES',
+                      'EDFR', 'EDGB', 'EDGR', 'EDHK', 'EDID', 'EDIN', 'EDIT',
+                      'EDJP', 'EDMA', 'EDMX', 'EDNL', 'EDNZ', 'EDPE', 'EDPH',
+                      'EDPT', 'EDRU', 'EDSG', 'EDTH', 'EDTR', 'EDUK', 'EDUS',
+                      'EDVE', 'EDZA', 'GODE', 'GOES', 'GOFR', 'GOGB', 'GOIT',
+                      'GONL', 'GOPT', 'OPAT', 'OPAU', 'OPCH', 'OPDE', 'OPDEC',
+                      'OPFR', 'OPFRC', 'OPGB', 'OPIT', 'OPNL', 'OPPL', 'OPPLC',
+                      'OPUK', 'TLDK', 'TLDKC', 'TLFI', 'TLNO', 'TLSE']%}
+                      <option value="{{i}}">{{i}}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="label">Product</label>
+                  <div class="select">
+                    <select name="product">
+                      {% for i in ['TRIP', 'DYNPACK'] %}
+                      <option>{{i}}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="label">GDS</label>
+                  <div class="select">
+                    <select name="gds">
+                      {% for i in [0, 1,2,3,4] %}
+                      <option>{{i}}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="label">No GDS</label>
+                  <div class="select">
+                    <select name="no_gds">
+                      {% for i in [0, 1,2,3,4] %}
+                      <option>{{i}}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <div>
+                    <label class="checkbox has-text-weight-bold">
+                      <input type="checkbox" id="train" name="train" />
+                      Train
+                    </label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div>
+                    <label class="checkbox has-text-weight-bold">
+                      <input type="checkbox" id="sms" name="sms" />
+                      SMS
+                    </label>
+                  </div>
+                </div>
+                <div class="field is-grouped">
+                  <div class="control">
+                    <button
+                      style="background-color: gold"
+                      class="has-text-black-bis button is-link"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
