@@ -1,1 +1,1 @@
-web: gunicorn gettingstarted.wsgi
+web: gunicorn — bind 0.0.0.0:$PORT extra-baggage-predictor:app
