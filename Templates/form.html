@@ -1,22 +1,22 @@
 <form method="post" action="/predict" class="control has-background-white p-2">
   <div class="field">
-    <label class="label">Departure</label>
+    <label class="label is-large is-large">Departure</label>
     <div class="control">
-      <input class="input" name="departure" type="date" />
+      <input class="input is-large" name="departure" type="date" />
     </div>
   </div>
   <div class="field">
-    <label class="label">Arrival</label>
+    <label class="label is-large">Arrival</label>
     <div class="control">
-      <input class="input" name="arrival" type="date" />
+      <input class="input is-large" name="arrival" type="date" />
     </div>
   </div>
   <div class="field">
-    <label class="label">Num Adults</label>
+    <label class="label is-large">Num Adults</label>
     <div class="control">
       <input
         type="number"
-        class="input"
+        class="input is-large"
         name="adults"
         min="0"
         max="10"
@@ -24,11 +24,11 @@
       />
     </div>
     <div class="field">
-      <label class="label">Num Children</label>
+      <label class="label is-large">Num Children</label>
       <div class="control">
         <input
           type="number"
-          class="input"
+          class="input is-large"
           name="children"
           min="0"
           max="10"
@@ -37,11 +37,11 @@
       </div>
     </div>
     <div class="field">
-      <label class="label">Num Infants</label>
+      <label class="label is-large">Num Infants</label>
       <div class="control">
         <input
           type="number"
-          class="input"
+          class="input is-large"
           name="infants"
           min="0"
           max="10"
@@ -50,12 +50,12 @@
       </div>
     </div>
     <div class="field">
-      <label class="label">Distance (Km)</label>
+      <label class="label is-large">Distance (Km)</label>
       <div class="control">
         <input
           size="10"
           name="distance"
-          class="input"
+          class="input is-large"
           placeholder="345.78"
           pattern="(^\d+$)|(\d+\.\d+)"
           type="text"
@@ -64,10 +64,10 @@
       </div>
     </div>
     <div class="field">
-      <label class="label">Haul type</label>
+      <label class="label is-large">Haul type</label>
       <div class="control">
-        <div class="select is-fullwidth is-fullwidth">
-          <select name="haul_type" class="control">
+        <div class="select is-large is-fullwidth">
+          <select name="haul_type">
             {% for i in ['CONTINENTAL', 'DOMESTIC', 'INTERCONTINENTAL']%}
 
             <option>{{i}}</option>
@@ -77,9 +77,9 @@
       </div>
     </div>
     <div class="field">
-      <label class="label">Trip type</label>
+      <label class="label is-large">Trip type</label>
       <div class="control">
-        <div class="select is-fullwidth">
+        <div class="select is-large is-fullwidth">
           <select name="trip_type">
             {% for i in ['MULTI DESTINATION', 'ONE WAY', 'ROUND TRIP']%}
 
@@ -91,9 +91,9 @@
     </div>
   </div>
   <div class="field">
-    <label class="label">Website</label>
+    <label class="label is-large">Website</label>
     <div class="control">
-      <div class="select is-fullwidth">
+      <div class="select is-large is-fullwidth">
         <select name="website">
           {% for i in ['EDAE', 'EDAR', 'EDAU', 'EDBR', 'EDCA', 'EDCH', 'EDCL',
           'EDCN', 'EDCO', 'EDDE', 'EDEG', 'EDES', 'EDFR', 'EDGB', 'EDGR',
@@ -110,9 +110,9 @@
     </div>
   </div>
   <div class="field">
-    <label class="label">Product</label>
+    <label class="label is-large">Product</label>
     <div class="control">
-      <div class="select is-fullwidth">
+      <div class="select is-large is-fullwidth">
         <select name="product">
           {% for i in ['TRIP', 'DYNPACK'] %}
           <option>{{i}}</option>
@@ -122,9 +122,9 @@
     </div>
   </div>
   <div class="field">
-    <label class="label">GDS</label>
+    <label class="label is-large">GDS</label>
     <div class="control">
-      <div class="select is-fullwidth">
+      <div class="select is-large is-fullwidth">
         <select name="gds">
           {% for i in [0, 1,2,3,4] %}
           <option>{{i}}</option>
@@ -134,9 +134,9 @@
     </div>
   </div>
   <div class="field">
-    <label class="label">No GDS</label>
+    <label class="label is-large">No GDS</label>
     <div class="control">
-      <div class="select is-fullwidth">
+      <div class="select is-large is-fullwidth">
         <select name="no_gds">
           {% for i in [0, 1,2,3,4] %}
           <option>{{i}}</option>
@@ -145,17 +145,17 @@
       </div>
     </div>
   </div>
-  <div class="field">
-    <label class="checkbox has-text-weight-bold">Train</label>
-    <div class="control">
+  <div class="field">    
+    <label class="label is-large">   
       <input type="checkbox" id="train" name="train" />
-    </div>
+    Train</label>
   </div>
   <div class="field">
-    <label class="checkbox has-text-weight-bold">SMS</label>
-    <div class="control">
+    
+      <label class="checkbox label is-large">
       <input type="checkbox" id="sms" name="sms" />
-    </div>
+    
+    SMS</label>
   </div>
   <div class="field">
     <div class="control">
