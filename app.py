@@ -1,6 +1,5 @@
 from flask import Flask,request, render_template
 import tensorflow as tf
-import tensorflow as tf
 import datetime
 from tensorflow import keras
 import os
