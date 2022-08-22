@@ -1,1 +1,1 @@
-web: gunicorn extra-baggage-predictor:app
+web: gunicorn baggage-predictor:app
