@@ -1,7 +1,6 @@
-from flask import Flask,request, url_for, redirect, render_template, jsonify
+from flask import Flask,request, render_template
 import tensorflow as tf
 import tensorflow as tf
-import json
 import datetime
 from tensorflow import keras
 import os
