@@ -1,12 +1,15 @@
 from flask import Flask,request, render_template
+from flask_assets import Environment
+import util.assets
 import tensorflow as tf
 import datetime
 from tensorflow import keras
 import os
+from flask_bootstrap import Bootstrap5
 
 # Initalise the Flask app
 app = Flask(__name__, template_folder='Templates')
-
+Bootstrap5(app)
 def formatDate(date_string):
     if (not date_string):
         date_object = datetime.datetime.today()

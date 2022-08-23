@@ -1,31 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <title>{{title}}</title>
-
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    {% block head %}
+    <meta
+      content="maximum-scale=1.0, initial-scale=1.0, width=device-width"
+      name="viewport"
     />
+
+    <title>{{title}}</title>
+    {% block styles %} {{ bootstrap.load_css() }} {% endblock %} {% endblock %}
   </head>
   <body>
-    <div class="container">
-      <div class="content">
-        <h1>
-          <div
-            class="is-size-2 has-text-centered p-4"
-            style="background-color: darkgreen; color: white"
-          >
-            Extra Baggage Predictor
-          </div>
-        </h1>
-        {% if (pred is number) or (pred is string) %}
-        <div class="notification is-primary">
-          Expected probability extra bags will be added: {{pred}}
-        </div>
-        {% endif %} {% include "form.html" %}
+    {% block content %}
+    <div class="container bg-success">
+      <div class="text-center p-4 bg-success fs-1 text-white">Extra Baggage Predictor</div>
+      {% if (pred is number) or (pred is string) %}
+      <div class="alert alert-success fs-2">
+        Expected probability extra bags will be added: {{pred}}
       </div>
+      {% endif %}
+      <div class="bg-white">{% include "form.html" %}</div>
     </div>
+    {% endblock %} {% block scripts %}
+    <!-- Optional JavaScript -->
+    {{ bootstrap.load_js() }} {% endblock %}
   </body>
 </html>
