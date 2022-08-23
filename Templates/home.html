@@ -12,8 +12,8 @@
   </head>
   <body>
     {% block content %}
-    <div class="container bg-success">
-      <div class="text-center p-4 bg-success fs-1 text-white">Extra Baggage Predictor</div>
+    <div class="container shadow-lg rounded ">
+      <h1 class="text-center bg-success pt-4 pb-4 fs-1 text-white">Extra Baggage Predictor</h1>
       {% if (pred is number) or (pred is string) %}
       <div class="alert alert-success fs-2">
         Expected probability extra bags will be added: {{pred}}
