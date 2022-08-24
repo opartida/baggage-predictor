@@ -1,6 +1,6 @@
 <form method="post" action="/predict" class="has-background-white p-2">
   <div class="mb-4">
-    <label for="departure" class="form-label">Departure</label>
+    <label for="departure" class="label label-default">Departure</label>
     <input
       class="input input-lg form-control"
       id="departure"
@@ -9,7 +9,7 @@
     />
   </div>
   <div class="mb-4">
-    <label for="arrival" class="form-label">Arrival</label>
+    <label for="arrival" class="label">Arrival</label>
     <input
       class="input input-lg form-control"
       id="arrival"
@@ -18,7 +18,7 @@
     />
   </div>
   <div class="mb-4">
-    <label for="adults" class="form-label">Num Adults</label>
+    <label for="adults" class="label">Num Adults</label>
 
     <input
       type="number"
@@ -31,7 +31,7 @@
     />
   </div>
   <div class="mb-4">
-    <label for="children" class="form-label">Num Children</label>
+    <label for="children" class="label">Num Children</label>
 
     <input
       type="number"
@@ -44,7 +44,7 @@
     />
   </div>
   <div class="mb-4">
-    <label for="infants" class="form-label">Num Infants</label>
+    <label for="infants" class="label">Num Infants</label>
 
     <input
       type="number"
@@ -57,7 +57,7 @@
     />
   </div>
   <div class="mb-4">
-    <label for="distance" class="form-label">Distance (Km)</label>
+    <label for="distance" class="label">Distance (Km)</label>
 
     <input
       size="10"
@@ -71,7 +71,7 @@
     />
   </div>
   <div class="mb-4">
-    <label for="haul_type" class="form-label">Haul type</label>
+    <label for="haul_type" class="label">Haul type</label>
 
     <select name="haul_type" class="form-control input-lg" id="haul_type">
       {% for i in ['CONTINENTAL', 'DOMESTIC', 'INTERCONTINENTAL']%}
@@ -81,7 +81,7 @@
     </select>
   </div>
   <div class="mb-4">
-    <label for="trip_type" class="form-label">Trip type</label>
+    <label for="trip_type" class="label">Trip type</label>
 
     <select name="trip_type" class="form-control input-lg" id="trip_type">
       {% for i in ['MULTI DESTINATION', 'ONE WAY', 'ROUND TRIP']%}
@@ -92,7 +92,7 @@
   </div>
 
   <div class="mb-4">
-    <label for="" class="form-label">Website</label>
+    <label for="" class="label">Website</label>
 
     <select name="website" class="form-control input-lg">
       {% for i in ['EDAE', 'EDAR', 'EDAU', 'EDBR', 'EDCA', 'EDCH', 'EDCL',
@@ -107,7 +107,7 @@
     </select>
   </div>
   <div class="mb-4">
-    <label for="" class="form-label">Product</label>
+    <label for="" class="label">Product</label>
     <select name="product" class="form-control input-lg">
       {% for i in ['TRIP', 'DYNPACK'] %}
       <option>{{i}}</option>
@@ -115,7 +115,7 @@
     </select>
   </div>
   <div class="mb-4">
-    <label for="" class="form-label">GDS</label>
+    <label for="" class="label">GDS</label>
 
     <select name="gds" class="form-control input-lg">
       {% for i in [0, 1,2,3,4] %}
@@ -124,7 +124,7 @@
     </select>
   </div>
   <div class="mb-4">
-    <label for="" class="form-label">No GDS</label>
+    <label for="" class="label">No GDS</label>
     <select name="no_gds" class="form-control input-lg">
       {% for i in [0, 1,2,3,4] %}
       <option>{{i}}</option>
