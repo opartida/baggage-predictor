@@ -17,7 +17,7 @@ def formatDate(date_string):
 
 @app.route('/')
 def home():    
-    return render_template("home.html")
+    return render_template("home.html", utc_dt=datetime.datetime.utcnow())
 
 @app.route('/predict',methods=['POST'])
 def predict():    
@@ -83,7 +83,7 @@ def predict():
     prediction = format(prediction, '.2f')
     
     
-    return render_template('home.html',pred=prediction)
+    return render_template('home.html',pred=prediction, utc_dt=datetime.datetime.utcnow())
 
 if __name__ == '__main__':
     app.run(debug=True)

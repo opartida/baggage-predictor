@@ -11,18 +11,25 @@
     {% block styles %} {{ bootstrap.load_css() }} {% endblock %} {% endblock %}
   </head>
   <body>
+    
     {% block content %}
     <div class="container p-0">
-      <h1 style="background-color:darkgreen" class="text-center mb-0 pt-4 pb-4 fs-2 text-white">
+      <h1
+        style="background-color: darkgreen"
+        class="text-center mb-0 pt-4 pb-4 fs-2 text-white"
+      >
         Extra Baggage Predictor
       </h1>
       <div class="container shadow-lg rounded mt-0">
-      {% if (pred is number) or (pred is string) %}
+        {% if (pred is number) or (pred is string) %}
         <div class="alert alert-success fs-2">
           Expected probability extra bags will be added: {{pred}}
         </div>
-        {% endif %}
-        <div class="bg-white">{% include "form.html" %}</div>
+        {% endif %} 
+        
+        <div class="bg-white">
+          {% include "form.html" %}
+        </div>
       </div>
     </div>
     {% endblock %} {% block scripts %}
